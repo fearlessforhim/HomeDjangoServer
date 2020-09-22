@@ -23,3 +23,8 @@ def get_about(request):
 	all_posts = AboutMePost.objects.all().values()
 	post_list = list(all_posts)
 	return JsonResponse(post_list[0], safe=False)
+
+def get_latest_posts(request):
+	all_posts = BlogPost.objects.filter(datePublished__isnull=False).order_by('-datePublished').values()
+	post_list = list(all_posts)[0:2]
+	return JsonResponse(post_list, safe=False)
