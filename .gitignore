@@ -3,3 +3,4 @@ blog/__pycache__/
 blog/migrations/__pycache__/
 *.pyc
 .idea/
+static
